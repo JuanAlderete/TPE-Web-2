@@ -17,13 +17,6 @@ class BooksView {
         $this->smarty->display('templates/showBooks.tpl');
     }
 
-    function showAdmBooks($books, $authors){     
-        $this->smarty->assign('books', $books);
-        $this->smarty->assign('authors', $authors);
-
-        $this->smarty->display('templates/showAdmBooks.tpl');
-    }
-
     function showBook($book){
         $this->smarty->assign('book', $book);
 

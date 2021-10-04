@@ -17,12 +17,6 @@ class BooksController{
         $this->authorModel = new AuthorModel();
     }
 
-    function showadmHome(){
-        $books = $this->model->getBooks();
-        $authors = $this->authorModel->getAuthors();
-        $this->view->showAdmBooks($books, $authors);
-    }
-
     function showHome(){
         $books = $this->model->getBooks();
         $authors = $this->authorModel->getAuthors();

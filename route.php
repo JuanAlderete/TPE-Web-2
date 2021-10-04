@@ -4,6 +4,7 @@
 require_once "./Controller/BookController.php";
 require_once "./Controller/AuthorController.php";
 require_once "./Controller/LoginController.php";
+require_once "./Controller/AdmController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/');
  
@@ -19,6 +20,7 @@ $params = explode('/', $action);
 $bookController = new BooksController();
 $authorController = new AuthorController();
 $loginController = new LoginController();
+$admController = new AdmController();
 
 
 switch($params[0]){
@@ -27,7 +29,7 @@ switch($params[0]){
         $authorController->authors();
         break;
     case 'admhome':
-        $bookController->showadmHome();
+        $admController->showadmHome();
         $authorController->authors();
         break;
     case 'CreateBook':

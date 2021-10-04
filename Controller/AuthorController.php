@@ -18,11 +18,6 @@ class AuthorController{
         $this->view->showAuthors($authors);
     }
 
-    function Admauthors(){
-        $authors = $this->model->getAuthors();
-        $this->view->showAdmAuthors($authors);
-    }
-
     // function checkAuthors($autor){
     //     $this->model->check($autor);      
     // }
