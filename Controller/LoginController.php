@@ -25,7 +25,7 @@ class LoginController{
             $hash      = password_hash($password, PASSWORD_DEFAULT);
             $isAdmin          = '0';
             $this->model->InsertarUsuario($email, $hash, $isAdmin);
-            $this->view->showHomeLocation();
+            $this->view->showAdmHomeLocation();
         }
     }
 
@@ -41,7 +41,7 @@ class LoginController{
                 session_start();
                 $_SESSION["email"] = $user;
 
-                $this->view->showHomeLocation("Acceso confirmado");
+                $this->view->showAdmHomeLocation("Acceso confirmado");
             } else {
                 $this->view->showLoginLocation("Acceso Denegado");
             }

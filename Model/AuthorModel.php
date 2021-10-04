@@ -13,7 +13,7 @@ class AuthorModel{
         $sentencia->execute();
         $authors = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $authors;
-    } 
+    }
 
     // function check($autor){
     //     $host = 'localhost';
@@ -33,10 +33,10 @@ class AuthorModel{
     // }
     
     function insertAuthor ($author){
-        $sentencia = $this->db->prepare("INSERT INTO autor(autor) VALUES(?)");
+        $sentencia = $this->db->prepare("INSERT INTO `autor` (`nombre`) VALUES (?)");
         $sentencia->execute(array($author));
         echo "Autor agregado";
-    }  
+    }
 
     function deleteAuthorDB($id){ 
         $sentencia = $this->db->prepare("DELETE FROM autor WHERE id_autor=?");

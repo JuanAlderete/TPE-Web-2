@@ -4,30 +4,27 @@
     <h1>Lista de Libros</h1>
 
     <div class="FormBooks">
-    <form action="CreateBook" method="post">
-    <h2>Ingrese un nuevo libro</h2>
-                Nombre <input type="text" name="nombre" id="nombre">
-                Fecha de publicacion <input type="text" name="fecha_publicacion" id="fecha_publicacion">
-                
-                 
-                <select name="AuthorSelect" >
-                    {foreach from=$authors item=$author}
-                    <option value="{$author->autor}">{$author->autor}</option>
-                    {/foreach}
-                </select>
+        <form action="CreateBook" method="post">
+            <h2>Ingrese un nuevo libro</h2>
 
-    <input type="submit" value="Guardar">
+            Nombre <input type="text" name="nombre" id="nombre">
+            Fecha de publicacion <input type="text" name="fecha_publicacion" id="fecha_publicacion">
 
-    </form>
+            <select name="AuthorSelect" >
+                {foreach from=$authors item=$author}
+                <option value="{$author->nombre}">{$author->nombre}</option>
+                {/foreach}
+            </select>
+
+        <input type="submit" value="Guardar">
+
+        </form>
     </div>
 
     <table>
         <thead>
             <tr>
                 <th>Nombre</th>
-                
-                
-                
             </tr>
         <thead>
         <tbody>
@@ -40,5 +37,7 @@
     </table>
 
 </div>
+
+{include file='templates/ShowAdmAuthors.tpl'}
 
 {include file='templates/footer.tpl'}

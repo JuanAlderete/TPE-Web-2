@@ -3,6 +3,7 @@
 require_once "./Model/BookModel.php";
 require_once "./Model/AuthorModel.php";
 require_once "./View/BookView.php";
+require_once "./Helpers/AuthHelper.php";
 
 
 class BooksController{
@@ -10,11 +11,13 @@ class BooksController{
     private $model;
     private $view;
     private $authorModel;
+    private $helper;
 
     function __construct(){
         $this->model = new BooksModel();
         $this->view = new BooksView();
         $this->authorModel = new AuthorModel();
+        $this->helper = new AuthHelper();
     }
 
     function showHome(){
@@ -25,7 +28,7 @@ class BooksController{
 
     function CreateBook(){
          //esto va en el controller del book
-
+        $this->helper->checkLoginIn();
         if(!empty($_POST['nombre'] && $_POST['fk_id_autor']&& $_POST['fecha_publicacion'])) {
     
             $nombre =$_POST['nombre'];
@@ -38,7 +41,7 @@ class BooksController{
     }
     
     function deleteBook($id){
-
+        $this->helper->checkLoginIn();
         $this->model->deleteBookDB($id);
         $this->view->showHomeLocation();
     }

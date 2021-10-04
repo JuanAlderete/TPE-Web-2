@@ -30,13 +30,12 @@ switch($params[0]){
         break;
     case 'admhome':
         $admController->showadmHome();
-        $authorController->authors();
         break;
     case 'CreateBook':
         $bookController->CreateBook();
         // $authorController->checkAuthors();
         break;
-    case 'CreateAuthor':
+    case 'createAuthor':
         $authorController->createAuthor();
         break;
     case 'showAuthors':

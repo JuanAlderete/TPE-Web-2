@@ -1,4 +1,4 @@
-{include file='templates/header.tpl'}
+
 
 <div class="container">
     <h1>LISTA DE AUTORES</h1>
@@ -11,7 +11,7 @@
         <tbody>
     {foreach from=$authors item=$author}
         <tr>
-            <td>{$author->autor}</td>
+            <td>{$author->nombre}</td>
         </tr>
     {/foreach}
         </tbody>    
