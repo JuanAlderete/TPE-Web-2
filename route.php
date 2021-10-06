@@ -47,7 +47,7 @@ switch($params[0]){
     /*case 'editBook':
         $bookController->editBook($params[1]);
         break;*/
-    case 'deleteAuthor': //no funciona porque no le puse id en la bd de autor, hay q modificar o volver a hacerla
+    case 'deleteAuthor':
         $authorController->deleteAuthor($params[1]);
         break;
     case 'viewBook': 
@@ -62,9 +62,12 @@ switch($params[0]){
     case 'verifylogin':
         $loginController->verifyLogin();
         break;
-    case 'register':
-        $loginController->insertUsuario();
-        break;
+    // case 'register':
+    //     $loginController->insertUsuario();
+    //     break;
+    case 'searchBooks':
+        $bookController->checkBooks();
+    break;
     default:
     echo ("404 Page not found");
     break;

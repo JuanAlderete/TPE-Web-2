@@ -51,4 +51,10 @@ class BooksController{
         $this->view->showBook($book);
     }
 
+    function checkBooks(){
+        $books = $this->model->checkBooks($_POST['filter']);
+        $authors = $this->authorModel->getAuthors();
+        $this->view->showBooks($books, $authors);
+    }
+
 }

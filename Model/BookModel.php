@@ -42,5 +42,12 @@ class BooksModel{
         $sentencia = $this->db->prepare("DELETE FROM libro WHERE id=?");
         $sentencia->execute(array($id));
     }
+
+    function checkBooks($filter){
+        $sentencia = $this->db->prepare( "SELECT * FROM `libro` WHERE titulo LIKE '%$filter%'");
+        $sentencia->execute();
+        $books = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $books;
+    }
 }
 
