@@ -33,7 +33,6 @@ switch($params[0]){
         break;
     case 'CreateBook':
         $bookController->CreateBook();
-        // $authorController->checkAuthors();
         break;
     case 'createAuthor':
         $authorController->createAuthor();
@@ -47,7 +46,7 @@ switch($params[0]){
     /*case 'editBook':
         $bookController->editBook($params[1]);
         break;*/
-    case 'deleteAuthor': //no funciona porque no le puse id en la bd de autor, hay q modificar o volver a hacerla
+    case 'deleteAuthor': 
         $authorController->deleteAuthor($params[1]);
         break;
     case 'viewBook': 
