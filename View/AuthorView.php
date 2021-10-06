@@ -16,8 +16,8 @@ class AuthorView {
         $this->smarty->display('templates/showAuthors.tpl');
     }
 
-    function showHomeLocation(){
-        header("Location:" .BASE_URL. "home");
+    function showAdmHomeLocation(){
+        header("Location:" .BASE_URL. "admhome");
     }
 
     function showLoginLocation(){

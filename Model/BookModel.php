@@ -16,26 +16,26 @@ class BooksModel{
     }
 
     function getBook($id){
-        $sentencia = $this->db->prepare( "SELECT * FROM libro WHERE id=?");
+        $sentencia = $this->db->prepare( "SELECT * FROM libro INNER JOIN autor ON libro.fk_id_autor = autor.id_autor WHERE id=?");
         $sentencia->execute(array($id));
         $book = $sentencia->fetch(PDO::FETCH_OBJ);
         return $book;
     }
 
-    function insertBooks ($nombre, $fecha_publicacion, $fk_id_autor){
-        $sentencia = $this->db->prepare("INSERT INTO libro(nombre, fecha_publicacion, fk_id_autor) VALUES(?, ?, ?)");
-        $sentencia->execute(array($nombre, $fecha_publicacion, $fk_id_autor));
+    function insertBooks ($titulo, $fecha_publicacion, $fk_id_autor){
+        $sentencia = $this->db->prepare("INSERT INTO libro(titulo, fecha_publicacion, fk_id_autor) VALUES(?, ?, ?)");
+        $sentencia->execute(array($titulo, $fecha_publicacion, $fk_id_autor));
     }
     
     /*function insertAutor ($autor){
         $sentencia = $this->db->prepare("INSERT INTO autor1(autor) VALUES(?)");
         $sentencia->execute(array($autor));*/
      
-    function getItems($nombre){
-        $sentencia = $this->db->prepare( "select * from libro where nombre = ?");
-        $sentencia->execute(array($nombre));
-        $nombres = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $nombres;
+    function getItems($titulo){
+        $sentencia = $this->db->prepare( "select * from libro where titulo = ?");
+        $sentencia->execute(array($titulo));
+        $titulos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $titulos;
     }
     function deleteBookDB($id){
         

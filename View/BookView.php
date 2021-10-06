@@ -26,4 +26,8 @@ class BooksView {
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
+
+    function showAdmHomeLocation(){
+        header("Location:" .BASE_URL. "admhome");
+    }
 }

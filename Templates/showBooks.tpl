@@ -5,13 +5,13 @@
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Titulo</th>
             </tr>
         <thead>
         <tbody>
     {foreach from=$books item=$book}
         <tr>
-            <td><a href="viewBook/{$book->id}">{$book->nombre}</a></td> 
+            <td><a href="viewBook/{$book->id}">{$book->titulo}</a></td> 
         </tr>
     {/foreach}
         </tbody>    

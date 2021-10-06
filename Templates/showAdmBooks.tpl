@@ -7,12 +7,12 @@
         <form action="CreateBook" method="post">
             <h2>Ingrese un nuevo libro</h2>
 
-            Nombre <input type="text" name="nombre" id="nombre">
+            Nombre <input type="text" name="titulo" id="titulo">
             Fecha de publicacion <input type="text" name="fecha_publicacion" id="fecha_publicacion">
 
             <select name="AuthorSelect" >
                 {foreach from=$authors item=$author}
-                <option value="{$author->nombre}">{$author->nombre}</option>
+                <option value="{$author->id_autor}">{$author->nombre}</option>
                 {/foreach}
             </select>
 
@@ -24,13 +24,13 @@
     <table>
         <thead>
             <tr>
-                <th>Nombre</th>
+                <th>Titulos</th>
             </tr>
         <thead>
         <tbody>
     {foreach from=$books item=$book}
         <tr>
-            <td><a href="viewBook/{$book->id}">{$book->nombre}<a href="deleteBook/{$book->id}">Borrar</a> <a  href="editBook/ {$book->id}">Editar</a> </td> 
+            <td><a href="viewBook/{$book->id}">{$book->titulo}<a href="deleteBook/{$book->id}">Borrar</a> <a  href="editBook/ {$book->id}">Editar</a> </td> 
         </tr>
     {/foreach}
         </tbody>    

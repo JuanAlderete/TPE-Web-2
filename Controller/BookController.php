@@ -29,21 +29,21 @@ class BooksController{
     function CreateBook(){
          //esto va en el controller del book
         $this->helper->checkLoginIn();
-        if(!empty($_POST['nombre'] && $_POST['fk_id_autor']&& $_POST['fecha_publicacion'])) {
+        if(!empty($_POST['titulo'] && $_POST['fecha_publicacion'] && $_POST['AuthorSelect'])) {
     
-            $nombre =$_POST['nombre'];
-            $fk_id_autor=$_POST['fk_id_autor'];
-            $fecha_publicacion= $_POST['fecha_publicacion'];
+            // $nombre =$_POST['nombre'];
+            // $fecha_publicacion= $_POST['fecha_publicacion'];
+            // $fk_id_autor= $_POST['AuthorSelect'];
             //check($autor);
+            $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect']);
         }
-        //$this->model->CreateBook($_POST['nombre'], $_POST['autor'], $_POST['fecha_publicacion']);
-        $this->view->showHomeLocation();
+        $this->view->showAdmHomeLocation();
     }
     
     function deleteBook($id){
         $this->helper->checkLoginIn();
         $this->model->deleteBookDB($id);
-        $this->view->showHomeLocation();
+        $this->view->showAdmHomeLocation();
     }
 
     function viewBook($id){

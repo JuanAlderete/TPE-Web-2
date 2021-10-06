@@ -28,12 +28,12 @@ class AuthorController{
     function deleteAuthor($id){
         $this->helper->checkLoginIn();
         $this->model->deleteAuthorDB($id);
-        $this->view->showHomeLocation();
+        $this->view->showAdmHomeLocation();
     }
 
     function createAuthor(){
         $this->helper->checkLoginIn();
         $this->model->insertAuthor($_POST['author']);
-        $this->view->showHomeLocation();
+        $this->view->showAdmHomeLocation();
     }
 }
