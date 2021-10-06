@@ -2,9 +2,8 @@
 
 <div class="container">
     <h1>{$book->nombre}</h1>
-    {* <h2>Descripcion: {$task->descripcion}</h2>
-    <h2>Prioridad: {$task->prioridad}</h2>
-    <h2>Finalizada: {$task->finalizada}</h2> *}
+        {* FALTA PODER VER LA CATEGORIA(OSEA EL AUTOR)*}
+     <h2>Fecha de publicacion: {$book->fecha_publicacion}</h2>
 
     <a href="home" > Volver </a>
 </div>
