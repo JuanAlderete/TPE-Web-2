@@ -7,12 +7,12 @@
             Contraseña <input type="password" name="password" id="password">
         <input type="submit" value="Entrar">
     </form> 
-    {* </br>
+    </br>
     <form action="register" method="post">
             Email <input type="text" name="email" id="email"> </br>
             Contraseña <input type="password" name="password" id="password">
         <input type="submit" value="Registrar">
-    </form> *}
+    </form> 
 </div>
 
 {include file='templates/footer.tpl'}

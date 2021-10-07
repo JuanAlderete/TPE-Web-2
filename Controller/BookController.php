@@ -56,5 +56,11 @@ class BooksController{
         $authors = $this->authorModel->getAuthors();
         $this->view->showBooks($books, $authors);
     }
+    function editBook(){ 
+        var_dump($_POST);
+        
+        $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect'], $_POST['book_id'] );
+        $this->view->showAdmHomeLocation();
+    }
 
 }

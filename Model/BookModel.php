@@ -49,5 +49,10 @@ class BooksModel{
         $books = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $books;
     }
+    function edit($titulo, $fecha_publicacion, $fk_id_autor, $id){
+        $sentencia = $this->db->prepare( "UPDATE libro  SET titulo=? , fecha_publicacion=?, fk_id_autor=?  WHERE id=?");
+        $sentencia->execute(array($titulo, $fecha_publicacion, $fk_id_autor, $id));
+
+    }
 }
 

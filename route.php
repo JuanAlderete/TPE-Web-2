@@ -44,9 +44,9 @@ switch($params[0]){
      case 'deleteBook':
         $bookController->deleteBook($params[1]);
          break;
-    /*case 'editBook':
-        $bookController->editBook($params[1]);
-        break;*/
+    case 'editBook':
+        $bookController->editBook();
+        break;
     case 'deleteAuthor':
         $authorController->deleteAuthor($params[1]);
         break;
@@ -62,9 +62,9 @@ switch($params[0]){
     case 'verifylogin':
         $loginController->verifyLogin();
         break;
-    // case 'register':
-    //     $loginController->insertUsuario();
-    //     break;
+     case 'register':
+         $loginController->insertUsuario();
+        break;
     case 'searchBooks':
         $bookController->checkBooks();
     break;
