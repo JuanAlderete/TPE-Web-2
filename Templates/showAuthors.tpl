@@ -11,7 +11,7 @@
         <tbody>
     {foreach from=$authors item=$author}
         <tr>
-            <td>{$author->nombre}</td>
+            <td><a href="viewBook/{$author->id}"> {$author->nombre}</a></td>
         </tr>
     {/foreach}
         </tbody>    
