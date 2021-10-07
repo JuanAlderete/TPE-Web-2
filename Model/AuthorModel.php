@@ -15,22 +15,6 @@ class AuthorModel{
         return $authors;
     }
 
-    // function check($autor){
-    //     $host = 'localhost';
-    //     $db = 'db_libros';
-    //     $user = 'root';
-    //     $passwd = '';
-    //     $conn = mysqli_connect($host, $user, $passwd, $db);
-    //     $result = $conn->query("SELECT * FROM `autor` WHERE autor LIKE '%$autor%'");
-    //     if (mysqli_num_rows($result) > 0) {
-    //         // insertBooks($nombre, $autor, $fecha_publicacion);
-    //         echo "Libro agregado";
-    //     } else { 
-    //         // insertAutor ($autor);
-    //         // insertBooks($nombre, $autor, $fecha_publicacion);
-    //         echo "Autor y libro agregado";
-    //     }
-    // }
     
     function insertAuthor ($author){
         $sentencia = $this->db->prepare("INSERT INTO `autor` (`nombre`) VALUES (?)");
