@@ -32,4 +32,15 @@ class AuthorController{
         $this->model->insertAuthor($_POST['author']);
         $this->view->showAdmHomeLocation();
     }
+    
+    function viewAuthor($id){
+        $author = $this->model->getAuthor($id);
+        $this->view->showAuthor($author);
+    }
+
+    function editAuthor(){
+        var_dump($_POST);
+        $this->model->edit($_POST['author'],$_POST['author_id'] );
+        $this->view->showAdmHomeLocation();
+    }
 }

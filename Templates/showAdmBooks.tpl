@@ -48,7 +48,7 @@
         <tbody>
     {foreach from=$books item=$book}
         <tr>
-            <td><a href="viewBook/{$book->id}">{$book->titulo} <a href="deleteBook/{$book->id}">Borrar</a>  <button  class="get_book_id" type ="button" data-id={$book->id} >Editar</button><a  href="editBook/ {$book->id}">Editar</a> </td> 
+            <td><a href="viewBook/{$book->id}">{$book->titulo} <a href="deleteBook/{$book->id}">Borrar</a>  <button  class="get_book_id" type ="button" data-id={$book->id} >Editar</button></a> </td> 
         </tr>
     {/foreach}
         </tbody>    

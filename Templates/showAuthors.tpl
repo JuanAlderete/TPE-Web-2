@@ -5,17 +5,14 @@
     <table>
         <thead>
             <tr>
-                <th>Autor</th>
+                <th>Autores</th>
             </tr>
         <thead>
         <tbody>
     {foreach from=$authors item=$author}
         <tr>
-<<<<<<< HEAD
-            <td><a href="viewBook/{$author->id_autor}">{$author->nombre}</a></td>
-=======
-            <td><a href="viewBook/{$author->id}"> {$author->nombre}</a></td>
->>>>>>> c39a245d50c68acc657218273e441b5a8fa7c12e
+            <td><a href="viewAuthor/{$author->id_autor}"> {$author->nombre}</a></td>
+
         </tr>
     {/foreach}
         </tbody>    

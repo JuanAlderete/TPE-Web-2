@@ -11,7 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Titulo</th>
+                    <th>Titulos</th>
                 </tr>
             <thead>
             <tbody>
