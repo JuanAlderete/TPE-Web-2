@@ -9,7 +9,7 @@
     <table>
         <thead>
             <tr>
-                <th>Autor</th>
+                <th>Autores</th>
             </tr>
         <thead>
         <tbody>

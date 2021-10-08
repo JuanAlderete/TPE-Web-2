@@ -33,7 +33,6 @@ switch($params[0]){
         break;
     case 'CreateBook':
         $bookController->CreateBook();
-        // $authorController->checkAuthors();
         break;
     case 'createAuthor':
         $authorController->createAuthor();
@@ -44,10 +43,20 @@ switch($params[0]){
      case 'deleteBook':
         $bookController->deleteBook($params[1]);
          break;
+<<<<<<< HEAD
     case 'editBook':
         $bookController->editBook();
         break;
+=======
+    /*case 'editBook':
+        $bookController->editBook($params[1]);
+        break;*/
+<<<<<<< HEAD
+>>>>>>> c39a245d50c68acc657218273e441b5a8fa7c12e
     case 'deleteAuthor':
+=======
+    case 'deleteAuthor': 
+>>>>>>> 32a3108d5f18999d48e277777b8c7c373ef6c2c6
         $authorController->deleteAuthor($params[1]);
         break;
     case 'viewBook': 

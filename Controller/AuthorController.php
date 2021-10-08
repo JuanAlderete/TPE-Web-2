@@ -21,10 +21,6 @@ class AuthorController{
         $this->view->showAuthors($authors);
     }
 
-    // function checkAuthors($autor){
-    //     $this->model->check($autor);      
-    // }
-
     function deleteAuthor($id){
         $this->helper->checkLoginIn();
         $this->model->deleteAuthorDB($id);
