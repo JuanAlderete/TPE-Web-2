@@ -24,13 +24,13 @@ class AuthorController{
     function deleteAuthor($id){
         $this->helper->checkLoginIn();
         $this->model->deleteAuthorDB($id);
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
 
     function createAuthor(){
         $this->helper->checkLoginIn();
         $this->model->insertAuthor($_POST['author']);
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
     
     function viewAuthor($id){
@@ -41,6 +41,6 @@ class AuthorController{
     function editAuthor(){
         var_dump($_POST);
         $this->model->edit($_POST['author'],$_POST['author_id'] );
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
 }

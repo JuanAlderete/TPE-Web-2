@@ -37,13 +37,13 @@ class BooksController{
             //check($autor);
             $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect']);
         }
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
     
     function deleteBook($id){
         $this->helper->checkLoginIn();
         $this->model->deleteBookDB($id);
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
 
     function viewBook($id){
@@ -60,7 +60,7 @@ class BooksController{
         var_dump($_POST);
         
         $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect'], $_POST['book_id'] );
-        $this->view->showAdmHomeLocation();
+        $this->helper->showAdmHomeLocation();
     }
 
 }

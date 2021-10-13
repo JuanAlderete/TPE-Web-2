@@ -22,12 +22,4 @@ class BooksView {
 
         $this->smarty->display('Templates/showBook.tpl');
     }
-    
-    function showHomeLocation(){
-        header("Location: ".BASE_URL."home");
-    }
-
-    function showAdmHomeLocation(){
-        header("Location:" .BASE_URL. "admhome");
-    }
 }

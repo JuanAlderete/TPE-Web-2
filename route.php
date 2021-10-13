@@ -68,7 +68,7 @@ switch($params[0]){
         $loginController->verifyLogin();
         break;
      case 'register':
-         $loginController->insertUsuario();
+        $loginController->insertUsuario();
         break;
     case 'searchBooks':
         $bookController->checkBooks();

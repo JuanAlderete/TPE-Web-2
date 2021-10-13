@@ -13,4 +13,12 @@ Class AuthHelper {
         }
     }
 
+    function showAdmHomeLocation(){
+        header("Location:" .BASE_URL. "admhome");
+    }
+
+    function showLoginLocation(){
+        header("Location: ".BASE_URL."login");
+    }
+
 }
