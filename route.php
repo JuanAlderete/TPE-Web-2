@@ -42,9 +42,10 @@ switch($params[0]){
         break;
     case 'deleteBook':
         $bookController->deleteBook($params[1]);
-         break;
+        break;
     case 'editAuthor':
-    $authorController->editAuthor();
+        $authorController->editAuthor();
+        // $authorController->editAuthor($params[1]);
         break;
     case 'editBook':
         $bookController->editBook();
@@ -73,7 +74,6 @@ switch($params[0]){
     case 'searchBooks':
         $bookController->checkBooks();
     break;
-    default:
     echo ("404 Page not found");
     break;
 }

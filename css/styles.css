@@ -1,3 +1,23 @@
+body {
+    background-color: aqua;
+}
+
+.menu {
+    display: flex;
+    align-items: baseline;
+    background-color: black;
+    color: white;
+    margin-left: 100px;
+}
+
+.container {
+    display: flex;
+}
+
+.blockbooks {
+    margin: 30px;
+}
+
 .hide{
     display: none;
 }

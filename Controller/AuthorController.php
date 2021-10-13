@@ -39,6 +39,12 @@ class AuthorController{
     }
 
     function editAuthor(){
+        // EditAuthor pero con un tpl (acordarse de agregar $id como variable que trae la funcion)
+        // $this->helper->checkLoginIn();
+        // $author = $this->model->getAuthor($id);
+        // $this->view->showForm($author);
+
+        $this->helper->checkLoginIn();
         var_dump($_POST);
         $this->model->edit($_POST['author'],$_POST['author_id'] );
         $this->helper->showAdmHomeLocation();

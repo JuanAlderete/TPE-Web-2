@@ -4,10 +4,10 @@
 
     <h1>{$book->titulo}</h1>
     
-    <h2>Año de publicacion: {$book->fecha_publicacion}</h2>
+    <h3>Año de publicacion: {$book->fecha_publicacion}</h3>
      
 
-    <h1>{$book->nombre}</h1>
+    <h3>Autor: {$book->nombre}</h3>
        
 
     <a href="home" > Volver </a>
