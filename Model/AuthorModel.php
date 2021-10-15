@@ -34,6 +34,12 @@ class AuthorModel{
         return $author;
     }
 
+    function getBooksAuthor($id){
+        $sentencia = $this->db->prepare( "SELECT * FROM libros  WHERE id_fk_autor_id=?");
+        $sentencia->execute(array($id));
+        $author = $sentencia->fetch(PDO::FETCH_OBJ);
+    }
+
     function edit($nombre, $id_autor){
         $sentencia = $this->db->prepare( "UPDATE autor SET nombre=? WHERE id_autor=?");
         $sentencia->execute(array($nombre, $id_autor));
