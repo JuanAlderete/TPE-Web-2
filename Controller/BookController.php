@@ -56,11 +56,20 @@ class BooksController{
         $authors = $this->authorModel->getAuthors();
         $this->view->showBooks($books, $authors);
     }
-    function editBook(){ 
+
+    function editBook(){
+        $this->helper->checkLoginIn();
         var_dump($_POST);
-        
         $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect'], $_POST['book_id'] );
         $this->helper->showAdmHomeLocation();
+    }
+
+    function formEditbook($id){
+        // EditAuthor pero con un tpl (acordarse de agregar $id como variable que trae la funcion)
+        $this->helper->checkLoginIn();
+        $book = $this->model->getBook($id);
+        $authors = $this->authorModel->getAuthors();
+        $this->view->showForm($book, $authors);
     }
 
 }

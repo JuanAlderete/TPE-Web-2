@@ -2,19 +2,23 @@
 
 require_once "./Model/LoginModel.php";
 require_once "./View/LoginView.php";
+require_once "./Helpers/AuthHelper.php";
 
 
 class LoginController{
 
     private $model;
     private $view;
+    private $helper;
 
     function __construct(){
         $this->model = new LoginModel();
         $this->view = new LoginView();
+        $this->helper = new AuthHelper();
     }
 
     function login(){
+        $this->helper->checkLogin();
         $this->view->showLogin();
     }
 
@@ -25,7 +29,7 @@ class LoginController{
             $hash      = password_hash($password, PASSWORD_DEFAULT);
             $isAdmin          = '0';
             $this->model->InsertarUsuario($email, $hash, $isAdmin);
-            $this->view->showAdmHomeLocation();
+            $this->helper->showAdmHomeLocation();
         }
     }
 
@@ -41,9 +45,9 @@ class LoginController{
                 session_start();
                 $_SESSION["email"] = $user;
 
-                $this->view->showAdmHomeLocation("Acceso confirmado");
+                $this->helper->showAdmHomeLocation("Acceso confirmado");
             } else {
-                $this->view->showLoginLocation("Acceso Denegado");
+                $this->helper->showLoginLocation("Acceso Denegado");
             }
         }
     }
@@ -52,6 +56,6 @@ class LoginController{
         session_start();
         session_destroy();
 
-        $this->view->showLoginLocation();
+        $this->helper->showLoginLocation();
     }
 }

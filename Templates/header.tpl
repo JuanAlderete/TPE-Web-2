@@ -11,9 +11,11 @@
     <body>
 
     <nav class="menu">
+        {* <img src="../img/bookstore.jpg"> *}
         <ul>
-            <li><a href="{BASE_URL}home">Inicio</a></li>
-            <li><a href="{BASE_URL}admhome">Adm Home</a></li>
-            <li><a href="{BASE_URL}logout">Logout</a></li>
+            <li class="leftli"><a href="{BASE_URL}home">Inicio</a></li>
+            <li class="leftli"><a href="{BASE_URL}admhome">Adm Home</a></li>
+            <li class="rightli"><a href="{BASE_URL}login">Login</a></li>
+            <li class="rightli"><a href="{BASE_URL}logout">Logout</a></li>
         </ul>
     </nav>

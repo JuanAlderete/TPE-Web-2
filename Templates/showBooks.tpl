@@ -17,7 +17,7 @@
             <tbody>
         {foreach from=$books item=$book}
             <tr>
-                <td><a href="viewBook/{$book->id}">{$book->titulo}</a></td> 
+                <td><a class="booktitle" href="viewBook/{$book->id}">{$book->titulo}</a></td> 
             </tr>
         {/foreach}
             </tbody>    

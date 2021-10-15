@@ -21,9 +21,9 @@ class AuthorController{
         $this->view->showAuthors($authors);
     }
 
-    function deleteAuthor($id){
+    function deleteAuthor(){
         $this->helper->checkLoginIn();
-        $this->model->deleteAuthorDB($id);
+        $this->model->deleteAuthorDB($_POST['author_id']);
         $this->helper->showAdmHomeLocation();
     }
 
@@ -38,15 +38,17 @@ class AuthorController{
         $this->view->showAuthor($author);
     }
 
-    function editAuthor(){
+    function formEditauthor($id){
         // EditAuthor pero con un tpl (acordarse de agregar $id como variable que trae la funcion)
-        // $this->helper->checkLoginIn();
-        // $author = $this->model->getAuthor($id);
-        // $this->view->showForm($author);
+        $this->helper->checkLoginIn();
+        $author = $this->model->getAuthor($id);
+        $this->view->showForm($author);
+    }
 
+    function editAuthor(){
         $this->helper->checkLoginIn();
         var_dump($_POST);
-        $this->model->edit($_POST['author'],$_POST['author_id'] );
+        $this->model->edit($_POST['author'], $_POST['author_id']);
         $this->helper->showAdmHomeLocation();
     }
 }

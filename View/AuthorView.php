@@ -25,6 +25,6 @@ class AuthorView {
     function showForm($author){
         $this->smarty->assign('author', $author);
 
-        $this->smarty->display('Templates/editForm.tpl');
+        $this->smarty->display('Templates/editAuthor.tpl');
     }
 }

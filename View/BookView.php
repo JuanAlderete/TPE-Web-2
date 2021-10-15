@@ -22,4 +22,11 @@ class BooksView {
 
         $this->smarty->display('Templates/showBook.tpl');
     }
+
+    function showForm($book, $authors){
+        $this->smarty->assign('book', $book);
+        $this->smarty->assign('authors', $authors);
+
+        $this->smarty->display('Templates/editBook.tpl');
+    }
 }

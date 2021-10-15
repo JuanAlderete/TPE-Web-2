@@ -43,15 +43,21 @@ switch($params[0]){
     case 'deleteBook':
         $bookController->deleteBook($params[1]);
         break;
+    case 'formEditAuthor':
+        // $authorController->editAuthor();
+        $authorController->formEditauthor($params[1]);
+        break;
     case 'editAuthor':
         $authorController->editAuthor();
-        // $authorController->editAuthor($params[1]);
+        break;
+    case 'formEditbook':
+        $bookController->formEditbook($params[1]);
         break;
     case 'editBook':
         $bookController->editBook();
         break;
     case 'deleteAuthor': 
-        $authorController->deleteAuthor($params[1]);
+        $authorController->deleteAuthor();
         break;
     case 'viewBook': 
         $bookController->viewBook($params[1]); 

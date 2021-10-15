@@ -13,6 +13,14 @@ Class AuthHelper {
         }
     }
 
+    function checkLogin(){
+        session_start();
+        if(isset($_SESSION["email"])){
+            echo '<script language="javascript">alert("Ya estas logueado");window.location.href="home"</script>';
+            // header("Location: ".BASE_URL."home");
+        }
+    }
+
     function showAdmHomeLocation(){
         header("Location:" .BASE_URL. "admhome");
     }

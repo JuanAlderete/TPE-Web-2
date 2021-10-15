@@ -1,23 +1,129 @@
-body {
-    background-color: aqua;
-}
-
 .menu {
+    display: block;
+    border:#983351 solid 2px;
+    background-color: bisque;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: block;
+}
+
+.menu ul li {
+    display:inline;
+    padding: 5px;
+    font-weight: bolder;
+}
+
+.menu ul li a {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color:black;
+    background-color:lightgray;
+}
+
+.rightli {
+    float: right;
+}
+
+h1{
+    color: #983351;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+h2{
+    color: #200439;  
+}
+
+th, td, table{
+    border:1px solid black;
+}
+
+th{   
+    color: #200439;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+td {
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color:#D40000;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.delete, .editar{
+    border: #983351 solid 1px;
+    color: #983351;
+    background-color: bisque;
+}
+
+p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 10px;
+}
+
+body{
+    background-image: url("../img/imagen_libro.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;  
+}
+
+.containerEdit{
+    justify-content: center;
+    margin: 100px;
+    border: #983351 solid 2px;
+    padding: 50px;
+    margin-left: 250px;
+    margin-right: 250px;   
+}
+
+form{
     display: flex;
-    align-items: baseline;
-    background-color: black;
-    color: white;
-    margin-left: 100px;
+    align-items: center;  
 }
 
-.container {
-    display: flex;
+.authortitle, .booktitle {
+    color: black;
+    font-size: 20px;
+    padding: 5px;
 }
 
-.blockbooks {
-    margin: 30px;
+#createBook form, #createAuthor form {
+    margin-bottom: 10px;
 }
 
-.hide{
+.hide {
+    display: block;
+}
+
+.nohide {
     display: none;
+}
+
+.bloqueBorrar {
+    text-align: center;
+    background-color: #D40000;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    border: black solid 2px;
+    width: 50%;
+}
+
+.bloqueBorrar div {
+    display: inline-block;
 }

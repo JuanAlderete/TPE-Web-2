@@ -37,8 +37,8 @@ class BooksModel{
         $titulos = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $titulos;
     }
+
     function deleteBookDB($id){
-        
         $sentencia = $this->db->prepare("DELETE FROM libro WHERE id=?");
         $sentencia->execute(array($id));
     }
