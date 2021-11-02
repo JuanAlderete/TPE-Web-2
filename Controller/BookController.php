@@ -72,4 +72,8 @@ class BooksController{
         $this->view->showForm($book, $authors);
     }
 
+    function ApiCSR(){
+        $this->view->showHomeApiCSR();
+    }
+
 }

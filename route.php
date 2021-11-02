@@ -80,6 +80,8 @@ switch($params[0]){
     case 'searchBooks':
         $bookController->checkBooks();
     break;
+    case 'ApiCSR':
+        $bookController->ApiCSR();
     echo ("404 Page not found");
     break;
 }

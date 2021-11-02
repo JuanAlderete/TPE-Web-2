@@ -29,4 +29,8 @@ class BooksView {
 
         $this->smarty->display('Templates/editBook.tpl');
     }
+
+    function ShowHomeApiCSR(){
+        $this->smarty->display('Templates/showHomeApiCSR.tpl');
+    }
 }
