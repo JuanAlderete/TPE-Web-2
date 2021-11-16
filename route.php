@@ -82,6 +82,16 @@ switch($params[0]){
     break;
     case 'ApiCSR':
         $bookController->ApiCSR();
+    break;
+    case 'users':
+        $admController->showUsers();
+    break;
+    case 'doAdmin':
+        $admController->doAdmin($params[1]);
+    break;
+    case 'undoAdmin':
+        $admController->undoAdmin($params[1]);
+    break;
     echo ("404 Page not found");
     break;
 }

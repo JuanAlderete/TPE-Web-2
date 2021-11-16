@@ -24,13 +24,14 @@ class LoginController{
 
     function insertUsuario(){
         if(!empty($_POST['email']) && !empty($_POST['password'])){
-            $email = $_POST['email'];
+            $email    = $_POST['email'];
             $password = $_POST['password'];
-            $hash      = password_hash($password, PASSWORD_DEFAULT);
-            $isAdmin          = '0';
+            $hash     = password_hash($password, PASSWORD_DEFAULT);
+            $isAdmin  = '0';
             $this->model->InsertarUsuario($email, $hash, $isAdmin);
-            $this->helper->showAdmHomeLocation();
+            // $this->helper->showAdmHomeLocation();
         }
+        $this->verifyLogin();
     }
 
     function verifyLogin(){
@@ -44,8 +45,9 @@ class LoginController{
 
                 session_start();
                 $_SESSION["email"] = $user;
+                $_SESSION["admin"] = $user->isAdmin;
 
-                $this->helper->showAdmHomeLocation("Acceso confirmado");
+                $this->helper->showHomeLocation("Acceso confirmado");
             } else {
                 $this->helper->showLoginLocation("Acceso Denegado");
             }

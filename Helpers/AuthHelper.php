@@ -13,6 +13,16 @@ Class AuthHelper {
         }
     }
 
+    function checkAdmin(){
+        if(!isset($_SESSION["admin"])){
+            header("Location: ".BASE_URL."login");
+        }else {
+            if($_SESSION["admin"] != 1){
+                header("Location: ".BASE_URL."home");
+            }
+        }
+    }
+
     function checkLogin(){
         session_start();
         if(isset($_SESSION["email"])){
@@ -27,6 +37,14 @@ Class AuthHelper {
 
     function showLoginLocation(){
         header("Location: ".BASE_URL."login");
+    }
+
+    function showHomeLocation(){
+        header("Location:" .BASE_URL. "home");
+    }
+
+    function showAdmUsers(){
+        header("Location:" .BASE_URL. "users");
     }
 
 }

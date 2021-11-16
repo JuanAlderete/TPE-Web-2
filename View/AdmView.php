@@ -22,4 +22,10 @@ class AdmView {
 
         $this->smarty->display('templates/showAdmBooks.tpl');
     }
+
+    function showUsers($users){
+        $this->smarty->assign('users', $users);
+
+        $this->smarty->display('templates/showAdmUsers.tpl');
+    }
 }
