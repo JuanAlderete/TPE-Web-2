@@ -10,5 +10,9 @@ $router->addRoute('libros', 'GET', 'ApiTaskController', 'getBooks');
 $router->addRoute('libro/:ID', 'GET', 'ApiTaskController', 'getBook');
 $router->addRoute('libro/:ID', 'PUT', 'ApiTaskController', 'updateBook');
 
+//referido a los comentarios
+$router->addRoute('comentario', 'GET', 'ApiCommentController', 'getComments');
+$router->addRoute('comentario/:ID', 'GET', 'ApiCommentController', 'getComment');
+
 // rutea
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);

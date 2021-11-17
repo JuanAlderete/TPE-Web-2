@@ -3,6 +3,7 @@
 require_once "./Model/AuthorModel.php";
 require_once "./Model/BookModel.php";
 require_once "./Model/LoginModel.php";
+require_once "./Model/CommentModel.php";
 require_once "./Helpers/AuthHelper.php";
 require_once "./View/AdmView.php";
 
@@ -12,6 +13,7 @@ class AdmController{
     private $BookModel;
     private $AuthorModel;
     private $LoginModel;
+    private $CommentModel;
     private $view;
     private $helper;
 
@@ -19,6 +21,7 @@ class AdmController{
         $this->BookModel = new BooksModel();
         $this->AuthorModel = new AuthorModel();
         $this->LoginModel = new LoginModel();
+        $this->CommentModel = new CommentModel();
         $this->helper = new AuthHelper();
         $this->view = new AdmView();
     }

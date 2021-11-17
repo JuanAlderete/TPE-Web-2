@@ -8,7 +8,6 @@
      
 
     <h3>Autor: {$book->nombre}</h3>
-       
 
     <a href="home" > Volver </a>
 </div>
