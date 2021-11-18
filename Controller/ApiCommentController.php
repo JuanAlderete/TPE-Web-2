@@ -2,17 +2,20 @@
 
 require_once "./Model/CommentModel.php";
 require_once "./View/ApiView.php";
+require_once "./View/CommentView.php";
 require_once "./Helpers/AuthHelper.php";
 
 class ApiCommentController{
   private $CommentModel;
   private $view;
   private $helper;
+  private $viewComment;
 
   function __construct(){
       $this->CommentModel = new CommentModel();
       $this->view = new ApiView();
       $this->helper = new AuthHelper();
+      $this->viewComment = new CommentView();
   }
   function getComments(){
     $comments = $this->CommentModel->getComments();
@@ -44,6 +47,6 @@ class ApiCommentController{
   }
 
   function CommentsApiCSR(){
-    $this->view->showComments();
+    $this->viewComment->showComments();
   }
 }
