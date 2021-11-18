@@ -128,3 +128,30 @@ form{
 .bloqueBorrar div {
     display: inline-block;
 }
+
+/* .container-popup {
+    display: flex;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.popup {
+    background-color: whitesmoke;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 50px;
+    border-radius: 5px;
+}
+
+.show {
+    pointer-events: auto;
+    opacity: 1;
+} */

@@ -23,6 +23,11 @@ class LoginModel{
         $sentencia->execute(array($user, $pass, $isAdmin));
     }
 
+    function deleteUserDB($id_user){
+        $sentencia = $this->db->prepare("DELETE FROM `users` WHERE id_user=?");
+        $sentencia->execute(array($id_user));
+    }
+
     function doAdmin ($id){
         $sentencia = $this->db->prepare('UPDATE `users` SET `isAdmin` = "1" WHERE `users`.`id_user` = ?');
         $sentencia->execute(array($id));

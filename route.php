@@ -86,6 +86,9 @@ switch($params[0]){
     case 'users':
         $admController->showUsers();
     break;
+    case 'deleteUser': 
+        $admController->deleteUser($params[1]);
+        break;
     case 'doAdmin':
         $admController->doAdmin($params[1]);
     break;

@@ -51,6 +51,14 @@ class AdmController{
         $this->view->showUsers($users);
     }
 
+    function deleteUser($id_user){
+        $this->helper->checkLoginIn();
+        $this->helper->checkAdmin();
+
+        $this->LoginModel->deleteUserDB($id_user);
+        $this->helper->showAdmUsers();
+    }
+
     function doAdmin($id){
         $this->helper->checkLoginIn();
         $this->helper->checkAdmin();
