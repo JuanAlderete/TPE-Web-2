@@ -5,6 +5,7 @@ require_once "./Controller/BookController.php";
 require_once "./Controller/AuthorController.php";
 require_once "./Controller/LoginController.php";
 require_once "./Controller/AdmController.php";
+require_once "./Controller/ApiCommentController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT']. dirname($_SERVER['PHP_SELF']).'/');
  
@@ -21,6 +22,7 @@ $bookController = new BooksController();
 $authorController = new AuthorController();
 $loginController = new LoginController();
 $admController = new AdmController();
+$apiCommentController = new ApiCommentController();
 
 
 switch($params[0]){
@@ -82,6 +84,9 @@ switch($params[0]){
     break;
     case 'ApiCSR':
         $bookController->ApiCSR();
+    break;
+    case 'CommentsApiCSR':
+        $apiCommentController->CommentsApiCSR();
     break;
     case 'users':
         $admController->showUsers();

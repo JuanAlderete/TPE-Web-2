@@ -42,4 +42,8 @@ class ApiCommentController{
       return $this->view->response("No se pudo insertar el comentario", 500);
     }
   }
+
+  function CommentsApiCSR(){
+    $this->view->showComments();
+  }
 }

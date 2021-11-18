@@ -1,6 +1,7 @@
 <?php
 require_once 'libs/Router.php';
 require_once 'Controller/ApiTaskController.php';
+require_once 'Controller/ApiCommentController.php';
 
 // crea el router
 $router = new Router();
@@ -11,7 +12,7 @@ $router->addRoute('libro/:ID', 'GET', 'ApiTaskController', 'getBook');
 $router->addRoute('libro/:ID', 'PUT', 'ApiTaskController', 'updateBook');
 
 //referido a los comentarios
-$router->addRoute('comentario', 'GET', 'ApiCommentController', 'getComments');
+$router->addRoute('comentarios', 'GET', 'ApiCommentController', 'getComments');
 $router->addRoute('comentario/:ID', 'GET', 'ApiCommentController', 'getComment');
 
 // rutea
