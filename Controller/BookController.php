@@ -34,8 +34,16 @@ class BooksController{
             // $nombre =$_POST['nombre'];
             // $fecha_publicacion= $_POST['fecha_publicacion'];
             // $fk_id_autor= $_POST['AuthorSelect'];
-            //check($autor);
-            $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect']);
+            // check($autor);
+
+            // $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect']);
+
+            // Insertar una imagen tambien con el libro
+            if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ) {
+                $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_FILES['input_name']['tmp_name'], $_POST['AuthorSelect']);
+            }else {
+                $this->model->insertBooks($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect']);
+            }
         }
         $this->helper->showAdmHomeLocation();
     }
@@ -60,7 +68,11 @@ class BooksController{
     function editBook(){
         $this->helper->checkLoginIn();
         var_dump($_POST);
-        $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect'], $_POST['book_id'] );
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png" ) {
+            $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_FILES['input_name']['tmp_name'], $_POST['AuthorSelect'], $_POST['book_id'] );
+        }else {
+            $this->model->edit($_POST['titulo'], $_POST['fecha_publicacion'], $_POST['AuthorSelect'], $_POST['book_id'] );
+        } 
         $this->helper->showAdmHomeLocation();
     }
 

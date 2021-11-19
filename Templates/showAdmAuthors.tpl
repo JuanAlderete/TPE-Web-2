@@ -1,6 +1,6 @@
+<h1>Lista de Autores</h1>
 <div class="containerAuthors">
-    <h1>Lista de Autores</h1>
-    
+
     <div id="createAuthor">
         <h2>Ingrese un nuevo autor</h2>
         <form action="createAuthor" method="post" >

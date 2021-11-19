@@ -22,9 +22,22 @@ class BooksModel{
         return $book;
     }
 
-    function insertBooks ($titulo, $fecha_publicacion, $fk_id_autor){
-        $sentencia = $this->db->prepare("INSERT INTO libro(titulo, fecha_publicacion, fk_id_autor) VALUES(?, ?, ?)");
-        $sentencia->execute(array($titulo, $fecha_publicacion, $fk_id_autor));
+    function insertBooks ($titulo, $fecha_publicacion, $imagen = null, $fk_id_autor){
+        // $sentencia = $this->db->prepare("INSERT INTO libro(titulo, fecha_publicacion, fk_id_autor) VALUES(?, ?, ?)");
+        // $sentencia->execute(array($titulo, $fecha_publicacion, $fk_id_autor));
+
+        $pathImg = null;
+        if ($imagen) {
+            $pathImg = $this->uploadImage($imagen);
+        }
+        $query = $this->db->prepare("INSERT INTO libro(titulo, fecha_publicacion, imagen, fk_id_autor) VALUES(?, ?, ?, ?)");
+        $query->execute(array($titulo, $fecha_publicacion, $pathImg, $fk_id_autor));
+    }
+
+    private function uploadImage($imagen){
+        $target = './img/libros/' . uniqid() . '.jpg';
+        move_uploaded_file($imagen, $target);
+        return $target;
     }
     
     /*function insertAutor ($autor){
@@ -49,10 +62,15 @@ class BooksModel{
         $books = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $books;
     }
-    function edit($titulo, $fecha_publicacion, $fk_id_autor, $id){
-        $sentencia = $this->db->prepare( "UPDATE libro  SET titulo=? , fecha_publicacion=?, fk_id_autor=?  WHERE id=?");
-        $sentencia->execute(array($titulo, $fecha_publicacion, $fk_id_autor, $id));
 
+    function edit($titulo, $fecha_publicacion, $imagen = null, $fk_id_autor, $id){
+        $pathImg = null;
+        if ($imagen) {
+            $pathImg = $this->uploadImage($imagen);
+        }
+
+        $sentencia = $this->db->prepare( "UPDATE libro  SET titulo=? , fecha_publicacion=?, imagen=?, fk_id_autor=?  WHERE id=?");
+        $sentencia->execute(array($titulo, $fecha_publicacion, $pathImg, $fk_id_autor, $id));
     }
 }
 

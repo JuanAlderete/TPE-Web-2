@@ -1,13 +1,13 @@
 {include file='templates/header.tpl'}
 
+<h1>Lista de Libros</h1>
 <div class="containerBooks">
-    <h1>Lista de Libros</h1>
 
-    <div id="createBook">
+    <div id="createBook" class="container-add-book">
         <h2>Ingrese un nuevo libro</h2>
-        <form action="CreateBook" method="post">
-            <p>Nombre <input type="text" name="titulo" id="titulo"></p>
-            <p>Fecha de publicacion <input type="text" name="fecha_publicacion" id="fecha_publicacion"></p>
+        <form action="CreateBook" method="post" enctype="multipart/form-data" class="form-edit">
+            <p>Nombre <input type="text" name="titulo" id="titulo" class="feedback-input"></p>
+            <p>Fecha de publicacion <input type="text" name="fecha_publicacion" id="fecha_publicacion" class="feedback-input"></p>
             <p>Autor: 
                 <select name="AuthorSelect" >
                     {foreach from=$authors item=$author}
@@ -15,7 +15,10 @@
                     {/foreach}
                 </select>
             </p>
-            <input type="submit" value="Guardar">
+            <div class="form-file feedback-input form-edit-input-img">
+                <input type="file" name="input_name" id="imageToUpload">
+            </div>
+            <input type="submit" class="btn-editar" value="Guardar">
         </form>
     </div>
     
@@ -38,7 +41,7 @@
         <button id="cancelEdit" type="button" >Cancelar </button>
         </div> *}
 
-    <table>
+    <table class="table-books">
         <thead>
             <tr>
                 <th>Titulos</th>
