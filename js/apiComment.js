@@ -22,21 +22,20 @@ async function getComments(){
             list.innerHTML += html;
         }  
     }
-    getComments();
+   
 
     //cargar un comentario
 
     //document.querySelector(".form-comment").addEventListener("submit", agregarTarea);
    
-        async function addComment(e){ 
+        async function addComment(){ 
             console.log("funcionabtn");
-             e.preventDefault();
+             //e.preventDefault();
 
-    
         let comentario = document.querySelector("#comentario").value;
         let libro = document.querySelector("#libro").value;
         let usuario = document.querySelector("#usuario").value;
-        let comentarios={
+        let comments={
             "comentario": comentario,
             "libro":libro,
             "usuario":usuario
@@ -46,10 +45,9 @@ async function getComments(){
             let response = await fetch(COMMENT_URL, {
                 "method": "POST",
                 "headers": { "Content-type": "application/json" },
-                "body": JSON.stringify(comentarios)
+                "body": JSON.stringify(comments)
             });
-            let json = await response.json();
-        
+            
             if (response.status == 201) {
                 console.log("response");
             }
@@ -58,8 +56,9 @@ async function getComments(){
         }   
         }
     
-
-async function deleteComment(id){
+        document.querySelector(".btn-comment").addEventListener('click', addComment);
+        getComments();
+/*async function deleteComment(id){
     
     try{
         let response= await fetch (`${COMMENT_URL}/${id.id}`,{
@@ -71,6 +70,9 @@ async function deleteComment(id){
     }catch(error){
             console.log(error)
         }
-    } 
+    } */
+
+
+
      
     

@@ -17,7 +17,7 @@
     </br>
     
 </div>
-<div class="container">
+{*<div class="container">
            
             <form class="form-comment">
                 
@@ -34,7 +34,7 @@
 
     </ul>
 
-<script src="js/apiComment.js"></script>
+<script src="js/apiComment.js"></script>*}
 
 <a href="home" > Volver </a>
 

@@ -62,7 +62,8 @@ switch($params[0]){
         $authorController->deleteAuthor();
         break;
     case 'viewBook': 
-        $bookController->viewBook($params[1]); 
+        $bookController->viewBook($params[1]);
+        $apiCommentController->CommentsApiCSR();
         break; 
     case 'viewAuthor': 
         $authorController->viewAuthor($params[1]); 

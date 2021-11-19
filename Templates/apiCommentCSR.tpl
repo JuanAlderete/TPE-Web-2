@@ -7,7 +7,7 @@
                 <textarea placeholder="Deja tu comentario" type="text" name="comentario" id="comentario"> </textarea>
                 <input placeholder="Nombre del libro" type="text" name="libro" id="libro" required>
                 <input placeholder="Usuario" type="text" name="usuario" id="usuario">
-                <input type="submit" class="btn-comment" value="Guardar">
+                <input type="button" class="btn-comment" value="Guardar">
             </form>
 </div>
 
