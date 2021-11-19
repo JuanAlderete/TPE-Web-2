@@ -57,6 +57,7 @@ class BooksController{
     function viewBook($id){
         $book = $this->model->getBook($id);
         $this->view->showBook($book);
+        
     }
 
     function checkBooks(){

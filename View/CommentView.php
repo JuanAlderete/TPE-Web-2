@@ -11,4 +11,5 @@ class CommentView {
     function showComments(){
         $this->smarty->display('templates/apiCommentCSR.tpl');
     }
+    
 }

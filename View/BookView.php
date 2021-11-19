@@ -21,6 +21,7 @@ class BooksView {
         $this->smarty->assign('book', $book);
 
         $this->smarty->display('Templates/showBook.tpl');
+       
     }
 
     function showForm($book, $authors){
@@ -33,4 +34,6 @@ class BooksView {
     function ShowHomeApiCSR(){
         $this->smarty->display('Templates/showHomeApiCSR.tpl');
     }
+   
+
 }

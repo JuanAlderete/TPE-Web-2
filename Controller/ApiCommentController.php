@@ -21,6 +21,7 @@ class ApiCommentController{
     $comments = $this->CommentModel->getComments();
     return $this->view->response($comments, 200);
   }
+
   function getComment($params =null){
     $idComment = $params = [":ID"];
     if(empty($params)){
@@ -33,6 +34,11 @@ class ApiCommentController{
         return $this->view->response($comment,200);
       }
     }
+  }
+
+  private function getBody(){
+    $bodyString = file_get_contents("php://input");
+    return json_decode($bodyString);
   }
 
   function insertComment(){

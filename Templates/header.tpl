@@ -15,7 +15,7 @@
         <ul>
             <li class="leftli"><a href="{BASE_URL}home">Home</a></li>
             <li class="leftli"><a href="{BASE_URL}admhome">Adm Home</a></li>
-            <li class="leftli"><a href="{BASE_URL}CommentsApiCSR">Comments ApiCSR </a></li>
+           {* <li class="leftli"><a href="{BASE_URL}CommentsApiCSR">Comments ApiCSR </a></li>*}
             <li class="leftli"><a href="{BASE_URL}ApiCSR">Adm ApiCSR Home</a></li>
             {if ({$smarty.session.admin} == 1) } <li class="rightli"><a href="{BASE_URL}users">Users</a></li> {/if}
             
