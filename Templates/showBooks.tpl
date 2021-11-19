@@ -1,14 +1,14 @@
 {include file='templates/header.tpl'}
 
 <div class="container">
-    <div class="blockbooks">
-        <h1>LIBRERIA</h1>
-        <form action="searchBooks" method="post">
-            <input type="text" name="filter" id="filter" placeholder="Buscar por titulo.." required>
-            <input type="submit" value="Buscar">
+    <h1>LIBRERIA</h1>
+    <div class="container-home-books">
+        <form action="searchBooks" method="post" class="form-search">
+            <input type="text" name="filter" class="feedback-input-search" id="filter" placeholder="Buscar por titulo.." required>
+            <input type="submit" value="Buscar" class="btn-search">
         </form>
 
-        <table>
+        <table class="table-books">
             <thead>
                 <tr>
                     <th>Titulos</th>

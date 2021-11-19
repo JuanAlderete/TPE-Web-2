@@ -1,11 +1,11 @@
 <h1>Lista de Autores</h1>
 <div class="containerAuthors">
 
-    <div id="createAuthor">
+    <div id="createAuthor" class="container-add-author">
         <h2>Ingrese un nuevo autor</h2>
-        <form action="createAuthor" method="post" >
-            <input type="text" name="author" id="author">
-            <input type="submit" value="Agregar">
+        <form action="createAuthor" method="post" class="form-edit" >
+            <p>Autor <input type="text" name="author" id="author" class="feedback-input"></p>
+            <input type="submit" class="btn-editar" value="Agregar">
         </form>
     </div>
 
@@ -18,7 +18,7 @@
     <button id="cancelEditAuthor" type="button" >Cancelar </button>
     </div> *}
 
-    <table>
+    <table class="table-authors">
         <thead>
             <tr>
                 <th>Autores</th>
@@ -34,7 +34,20 @@
         </tbody>    
     </table>
 
-    <div class="nohide bloqueBorrar" id="editAuthor">
+    
+
+    {* <script type="text/javascript">
+        var boton = document.getElementById('botonBorrar');
+        var objetivo = boton.getAttribute('data-id');
+        function alerta(){
+            var mensaje;
+            var opcion = confirm("Se borraran todos los libros relacionados a este autor, desea continuar?");
+            if (opcion == true) {
+            }
+        }
+    </script> *}
+</div>
+<div class="nohide bloqueBorrar" id="editAuthor">
         <p> Se borraran todos los libros relacionados a este autor, desea continuar? </p>
         <div class="bloqueFormBorrar">
             <div>
@@ -47,16 +60,5 @@
             </div>
         </div>
     </div>
-
-    {* <script type="text/javascript">
-        var boton = document.getElementById('botonBorrar');
-        var objetivo = boton.getAttribute('data-id');
-        function alerta(){
-            var mensaje;
-            var opcion = confirm("Se borraran todos los libros relacionados a este autor, desea continuar?");
-            if (opcion == true) {
-            }
-        }
-    </script> *}
 
 <script type="text/javascript" src="js/edit.js"> </script>

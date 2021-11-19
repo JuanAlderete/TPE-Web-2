@@ -1,7 +1,7 @@
 {include file='templates/header.tpl'}
 
 <div class="containerUsers">
-    <table>
+    <table class="table-users">
         <thead>
             <tr>
                 <th>Usuarios</th>

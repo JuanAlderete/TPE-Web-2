@@ -1,8 +1,7 @@
 
-
-<div class="container">
-    <h1>LISTA DE AUTORES</h1>
-    <table>
+<h1>LISTA DE AUTORES</h1>
+<div class="containerAuthors">
+    <table class="table-authors">
         <thead>
             <tr>
                 <th>Autores</th>
