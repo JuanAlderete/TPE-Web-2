@@ -25,7 +25,7 @@ class ApiTaskController{
   }
 
   function getBook($params = null){
-    $idBook = $params = [":ID"];
+    $idBook = $params[":ID"];
     if(empty($params)){
       $books = $this->BookModel->getBooks();
       return $this->view->response($books,200);
