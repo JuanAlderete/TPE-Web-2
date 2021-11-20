@@ -2,11 +2,9 @@
 <div class="container">
            
             <form class="form-comment">
-                
-                <label>Deja tu comentario<label>
-                <textarea placeholder="Deja tu comentario" type="text" name="comentario" id="comentario"> </textarea>
-                <input placeholder="Nombre del libro" type="text" name="libro" id="libro" required>
-                <input placeholder="Usuario" type="text" name="usuario" id="usuario">
+             
+                <label>Comentario</label> <input type="text" name="comentario" id="comentario" placeholder="Comentario">
+                {*<label>Puntuacion</label> <input type="number" name="puntuacion" min="1" max="5" id="puntuacion" placeholder="Del 1 a 5">*}
                 <input type="button" class="btn-comment" value="Guardar">
             </form>
 </div>

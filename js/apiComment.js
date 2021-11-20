@@ -33,12 +33,8 @@ async function getComments(){
              //e.preventDefault();
 
         let comentario = document.querySelector("#comentario").value;
-        let libro = document.querySelector("#libro").value;
-        let usuario = document.querySelector("#usuario").value;
         let comments={
-            "comentario": comentario,
-            "libro":libro,
-            "usuario":usuario
+            "comentario": comentario,  
         }
         
         try {

@@ -16,9 +16,19 @@ class CommentModel{
     }
 
     function getComment($id){
-        $sentencia = $this->db->prepare( "SELECT * FROM comentario INNER JOIN libro ON comentario.fk_id_libro=libro.id WHERE comentario.id=?");
+        $sentencia = $this->db->prepare( "SELECT * FROM comentario INNER JOIN libro ON comentario.fk_id_libro=libro.id WHERE id=?");
         $sentencia->execute(array($id));
         $comment = $sentencia->fetch(PDO::FETCH_OBJ);
         return $comment;
+    }
+    function deleteComment($id){
+        $sentencia = $this->db->prepare("DELETE FROM comentario WHERE id=$id");
+        $sentencia->execute();
+    }
+
+    function insertComment($detalle, $fk_id_libro, $fk_id_user){
+        $sentencia = $this->db->prepare("INSERT INTO comentario(detalle, fk_id_libro, fk_id_user) VALUES(?,?,?)");
+        $a = $sentencia->execute(array($detalle, $fk_id_libro, $fk_id_user));
+        return $this->db->lastInsertId();
     }
 }
