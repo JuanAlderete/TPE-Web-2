@@ -14,21 +14,24 @@ class CommentModel{
         $comments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comments;
     }
+   
 
-    function getComment($id){
-        $sentencia = $this->db->prepare( "SELECT * FROM comentario INNER JOIN libro ON comentario.fk_id_libro=libro.id WHERE id=?");
+    //funciona    //
+    function getComment($id){     // SELECT detalle FROM comentario INNER JOIN libro ON comentario.fk_id_libro=libro.id WHERE fk_id_libro=?
+        $sentencia = $this->db->prepare("SELECT * FROM comentario WHERE id=?");
         $sentencia->execute(array($id));
-        $comment = $sentencia->fetch(PDO::FETCH_OBJ);
+        $comment = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comment;
     }
+
     function deleteComment($id){
-        $sentencia = $this->db->prepare("DELETE FROM comentario WHERE id=$id");
-        $sentencia->execute();
+        $sentencia = $this->db->prepare("DELETE FROM comentario WHERE id=?");
+        $sentencia->execute(array($id));
     }
 
-    function insertComment($detalle, $fk_id_libro, $fk_id_user){
-        $sentencia = $this->db->prepare("INSERT INTO comentario(detalle, fk_id_libro, fk_id_user) VALUES(?,?,?)");
-        $a = $sentencia->execute(array($detalle, $fk_id_libro, $fk_id_user));
+    function insertComment($detalle,$calificacion){
+        $sentencia = $this->db->prepare("INSERT INTO comentario(detalle,  calificacion) VALUES(?,?)");
+        $sentencia = $sentencia->execute(array($detalle,  $calificacion));
         return $this->db->lastInsertId();
     }
 }

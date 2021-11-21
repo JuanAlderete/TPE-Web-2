@@ -86,9 +86,9 @@ switch($params[0]){
     case 'ApiCSR':
         $bookController->ApiCSR();
     break;
-    /*case 'CommentsApiCSR':
-        $apiCommentController->CommentsApiCSR();
-    break;*/
+    case 'addComment':
+        $apiCommentController->insertComment();
+    break;
     case 'users':
         $admController->showUsers();
     break;

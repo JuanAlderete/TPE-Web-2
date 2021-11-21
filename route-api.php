@@ -15,6 +15,8 @@ $router->addRoute('libro/:ID', 'PUT', 'ApiTaskController', 'updateBook');
 $router->addRoute('comentarios', 'GET', 'ApiCommentController', 'getComments');
 $router->addRoute('comentarios/:ID', 'GET', 'ApiCommentController', 'getComment');
 $router->addRoute('comentarios', 'POST', 'ApiCommentController', 'addComment');
+$router->addRoute('comentarios/:ID', 'DELETE', 'ApiCommentController', 'deleteComment');
+
 
 // rutea
 $router->route($_GET["resource"], $_SERVER['REQUEST_METHOD']);
