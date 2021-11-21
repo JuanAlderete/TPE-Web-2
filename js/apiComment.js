@@ -2,8 +2,7 @@
 
 const COMMENT_URL = "api/comentarios";
 
-
-async function getComments(){
+/*async function getComments(){
         try{
             let response = await fetch(COMMENT_URL);
             let comentarios = await response.json(); 
@@ -19,7 +18,7 @@ async function getComments(){
             });
         });
 }
-
+*/
     function render(comentarios){  //falta poder mostrar el usuario y el libro en cada item
         let list = document.querySelector("#list-comments");
         

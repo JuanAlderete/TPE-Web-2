@@ -14,6 +14,13 @@ class CommentModel{
         $comments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comments;
     }
+    /*
+    function getComments(){
+        $sentencia = $this->db->prepare( "SELECT * FROM `comentario` INNER JOIN libro ON comentario.fk_id_libro=libro.id");
+        $sentencia->execute();
+        $comments = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comments;
+    }*/
    
 
     //funciona    //
