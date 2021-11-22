@@ -1,12 +1,12 @@
 
-<div class="container">
+<div class="container-comment">
            
-            <form class="form-comment">
+            <form class="form-comment"  >
              
                 <label>Comentario</label> <input type="text" name="comentario" id="comentario" placeholder="Comentario">
                 <label>Calificacion</label> <input type="number" name="calificacion" min="1" max="5" id="calificacion" placeholder="De 1 a 5">
                 
-                <input type="button" class="btn-comment" value="Guardar">
+                <button type="submit" class="btn-comment">Enviar comentario</button>
             </form>
 </div>
 

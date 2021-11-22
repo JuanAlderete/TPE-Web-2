@@ -41,11 +41,6 @@ class ApiCommentController{
     }
   }
 
-  private function getBody(){
-    $bodyString = file_get_contents("php://input");
-    return json_decode($bodyString);
-  }
-
   function addComment($params=null){
     $body = $this->getBody();
         if(!empty($_POST['comentario']) &&  !empty($_POST['calificacion'])) {
@@ -59,7 +54,11 @@ class ApiCommentController{
         }
   
 }
- 
+private function getBody(){
+  $bodyString = file_get_contents("php://input");
+  return json_decode($bodyString);
+}
+
   function deleteComment($params = null) {
     $idComment = $params[':ID'];
     $comment = $this->CommentModel->getComment($idComment);

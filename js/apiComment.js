@@ -1,8 +1,9 @@
 "use strict"
 
 const COMMENT_URL = "api/comentarios";
+const formulario= document.querySelector(".form-comments");
 
-/*async function getComments(){
+async function getComments(){
         try{
             let response = await fetch(COMMENT_URL);
             let comentarios = await response.json(); 
@@ -18,22 +19,30 @@ const COMMENT_URL = "api/comentarios";
             });
         });
 }
-*/
-    function render(comentarios){  //falta poder mostrar el usuario y el libro en cada item
+/*async function getComments(){
+    try {
+        let idBook= formulario.getAttribute('data-idBook');
+        let response=await fetch (COMMENT_URL + "/book" +"/${idBook}");
+    } catch (error) {
+        
+    }
+}*/
+
+    function render(comentarios){  //falta poder mostrar el comentario de cada item
         let list = document.querySelector("#list-comments");
         
         list.innerHTML = "";
         for (let comentario of comentarios){
-            let html = `<li> ${comentario.detalle} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
+            let html = `<li> ${comentario.comentario} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
             list.innerHTML += html;
         }  
         
     }
-
-
+    getComments(); 
     //document.querySelector(".form-comment").addEventListener("submit", agregarTarea);
-   
-    async function addComment(){ 
+    document.querySelector(".btn-comment").addEventListener('click', addComment);
+
+    async function addComment(){ //(arreglar)
             console.log("funcionabtn");
              //e.preventDefault();
         let comentario = document.querySelector("#comentario").value;
@@ -57,13 +66,10 @@ const COMMENT_URL = "api/comentarios";
             }
         } catch (error) {
             console.log(error);
-        }   
-        }
-    
-        document.querySelector(".btn-comment").addEventListener('click', addComment);
-        getComments();
-
-// funcion borrar comentario
+            }   
+    }
+     
+// funcion borrar comentario (funciona)
 async function deleteComment(id){
     console.log(id.id);
     console.log("funciona borrar");
