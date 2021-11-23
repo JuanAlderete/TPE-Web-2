@@ -8,7 +8,8 @@ class CommentView {
         $this->smarty = new Smarty();
     }
 
-    function showComments(){
+    function showComments($iduser){
+        $this->smarty->assign('iduser', $iduser);
         
         $this->smarty->display('templates/apiCommentCSR.tpl');
 

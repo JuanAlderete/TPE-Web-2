@@ -36,9 +36,9 @@ class CommentModel{
         $sentencia->execute(array($id));
     }
 
-    function insertComment($comentario,$calificacion){
-        $sentencia = $this->db->prepare("INSERT INTO comentario(comentario,  calificacion) VALUES(?,?)");
-        $sentencia = $sentencia->execute(array($comentario,  $calificacion));
+    function insertComment($comentario, $calificacion, $fk_id_libro, $fk_id_user){
+        $sentencia = $this->db->prepare("INSERT INTO comentario(comentario,  calificacion, fk_id_libro, fk_id_user) VALUES(?,?,?,?)");
+        $sentencia = $sentencia->execute(array($comentario,  $calificacion, $fk_id_libro, $fk_id_user));
         return $this->db->lastInsertId();
     }
 }

@@ -45,6 +45,7 @@ class LoginController{
 
                 session_start();
                 $_SESSION["email"] = $user;
+                $_SESSION["iduser"] = $user->id_user;
                 $_SESSION["admin"] = $user->isAdmin;
 
                 $this->helper->showHomeLocation("Acceso confirmado");

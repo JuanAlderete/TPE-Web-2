@@ -31,6 +31,12 @@ Class AuthHelper {
         }
     }
 
+    function getUser() {
+        $this->checkLoginIn();
+        $iduser = ($_SESSION["iduser"]);
+        return $iduser;
+    }
+
     function showAdmHomeLocation(){
         header("Location:" .BASE_URL. "admhome");
     }

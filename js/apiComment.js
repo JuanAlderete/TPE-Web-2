@@ -47,11 +47,13 @@ async function getComments(){
              //e.preventDefault();
         let comentario = document.querySelector("#comentario").value;
         let calificacion = document.querySelector("#calificacion").value;
+        let fk_id_libro = getIdBookUrl();
+        let fk_id_user = document.querySelector('#user').getAttribute('data-user');
         let comments={
             "comentario": comentario, 
-            //"fk_id_libro": fk_id_libro,
-            //"fk_id_user":fk_id_user, 
-            "calificacion": calificacion
+            "calificacion": calificacion,
+            "fk_id_libro": fk_id_libro,
+            "fk_id_user":fk_id_user
         }
         
         try {
@@ -83,7 +85,15 @@ async function deleteComment(id){
     }catch(error){
             console.log(error)
         }
-    } 
+}
 
-
-   
+function getIdBookUrl(){
+    //Se obtiene el valor de la URL desde el navegador
+    var actual = window.location+'';
+    //Se realiza la división de la URL
+    var split = actual.split("/");
+    //Se obtiene el ultimo valor de la URL
+    var id = split[split.length-1];
+    console.log(id);
+    return id;
+}

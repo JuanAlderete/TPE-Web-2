@@ -43,9 +43,9 @@ class ApiCommentController{
 
   function addComment($params=null){
     $body = $this->getBody();
-        if(!empty($_POST['comentario']) &&  !empty($_POST['calificacion'])) {
+        if(!empty($_POST['comentario']) &&  !empty($_POST['calificacion']) &&  !empty($_POST['fk_id_libro']) &&  !empty($_POST['fk_id_user'])) {
             
-            $idComment = $this->CommentModel->insertComment($body->comentario, $body->calificacion);
+            $idComment = $this->CommentModel->insertComment($body->comentario, $body->calificacion, $body->fk_id_libro, $body->fk_id_user);
             if($idComment != 0){
               return $this->view->response("Comentario insertado", 200);
             } else {
@@ -72,6 +72,7 @@ private function getBody(){
 }
 
   function CommentsApiCSR(){
-    $this->viewComment->showComments();
+    $iduser = $this->helper->getUser();
+    $this->viewComment->showComments($iduser);
   }
 }
