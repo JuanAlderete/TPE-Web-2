@@ -45,8 +45,7 @@ class ApiCommentController{
 function addComment($params=null){
   $body = $this->getBody();
 
-    if(!empty($_POST['detalle']) &&  !empty($_POST['calificacion']) &&  !empty($_POST['fk_id_libro']) &&  !empty($_POST['fk_id_user'])) {
-        
+  if (isset($params)) { 
         $idComment = $this->CommentModel->insertComment($body->detalle, $body->calificacion, $body->fk_id_libro, $body->fk_id_user);
         if($idComment != 0){
           return $this->view->response("Comentario insertado", 200);

@@ -1,7 +1,10 @@
 "use strict"
 
-const COMMENT_URL = "api/comentarios";
+const COMMENT_URL = "api/comentarios/";
 const formulario= document.querySelector(".form-comments");
+
+//document.querySelector(".form-comment").addEventListener("submit", agregarTarea);
+document.querySelector(".btn-comment").addEventListener('click', addComment);
 
 async function getComments(){
         try{
@@ -28,53 +31,51 @@ async function getComments(){
     }
 }*/
 
-    function render(comentarios){  //falta poder mostrar el comentario de cada item
-        let list = document.querySelector("#list-comments");
-        
-        list.innerHTML = "";
-        for (let comentario of comentarios){
-            let html = `<li> ${comentario.detalle} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
-            list.innerHTML += html;
-        }  
-        
-    }
-    getComments(); 
-    //document.querySelector(".form-comment").addEventListener("submit", agregarTarea);
-    document.querySelector(".btn-comment").addEventListener('click', addComment);
-
-    async function addComment(){ //(arreglar)
-            console.log("funcionabtn");
-
-        let comentario = document.querySelector("#comentario").value;
-        let calificacion = document.querySelector("#calificacion").value;
-        let fk_id_libro = document.querySelector('#idbook').getAttribute('data-book');
-        let fk_id_user = document.querySelector('#user').getAttribute('data-user');
-        let comments = {
-            "detalle" : comentario, 
-            "calificacion" : calificacion,
-            "fk_id_libro" : fk_id_libro,
-            "fk_id_user" : fk_id_user
+function render(comentarios){  //falta poder mostrar el comentario de cada item
+    let list = document.querySelector("#list-comments");
+    let book = document.querySelector('#idbook').getAttribute('data-book');
+    
+    list.innerHTML = "";
+    for (let comentario of comentarios){
+        if (book == `${comentario.fk_id_libro}`){
+        let html = `<li> ${comentario.detalle} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
+        list.innerHTML += html;
         }
+    }  
+    
+}
 
-        console.log(comments);
-        try {
-            event.preventDefault();
-            let response = await fetch(COMMENT_URL, {
-                "method": "POST",
-                "headers": { "Content-type": "application/json" },
-                "body": JSON.stringify(comments),
-            });
-            return response.json();
-            
-            if (response.status == 201) {
-                console.log("response");
+async function addComment(){ //(arreglar)
+        console.log("funcionabtn");
+            //e.preventDefault();
+    let comentario = document.querySelector("#comentario").value;
+    let calificacion = document.querySelector("#calificacion").value;
+    let fk_id_libro = document.querySelector('#idbook').getAttribute('data-book');
+    let fk_id_user = document.querySelector('#user').getAttribute('data-user');
+    let comments={
+        "detalle": comentario, 
+        "calificacion": calificacion,
+        "fk_id_libro": fk_id_libro,
+        "fk_id_user":fk_id_user
+    };
+    
+    try {
+        let response = await fetch(COMMENT_URL, {
+            method: 'POST',
+            body: JSON.stringify(comments),
+            headers: {
+                'Content-Type': 'application/json'
             }
+        });
+        
+        if (response.status == 201) {
+            console.log("response");
+        }
+    } catch (error) {
+        console.log(error);
+        }   
+}
 
-        } catch (error) {
-            console.log(error);
-            }   
-    }
-     
 // funcion borrar comentario (funciona)
 async function deleteComment(id){
     console.log(id.id);
@@ -91,6 +92,7 @@ async function deleteComment(id){
         }
 }
 
+getComments();
 // function getIdBookUrl(){
 //     //Se obtiene el valor de la URL desde el navegador
 //     var actual = window.location+'';
