@@ -11,7 +11,8 @@ class ApiCommentController{
   private $view;
   private $helper;
   private $viewComment;
-  PRIVATE $bookModel;
+  private $bookModel;
+  private $data;
 
   function __construct(){
       $this->CommentModel = new CommentModel();
@@ -19,7 +20,7 @@ class ApiCommentController{
       $this->view = new ApiView();
       $this->helper = new AuthHelper();
       $this->viewComment = new CommentView();
-
+      $this->data = file_get_contents("php://input");
   }
   
   function getComments(){
@@ -41,22 +42,24 @@ class ApiCommentController{
     }
   }
 
-  function addComment($params=null){
-    $body = $this->getBody();
-        if(!empty($_POST['comentario']) &&  !empty($_POST['calificacion']) &&  !empty($_POST['fk_id_libro']) &&  !empty($_POST['fk_id_user'])) {
-            
-            $idComment = $this->CommentModel->insertComment($body->comentario, $body->calificacion, $body->fk_id_libro, $body->fk_id_user);
-            if($idComment != 0){
-              return $this->view->response("Comentario insertado", 200);
-            } else {
-              return $this->view->response("No se pudo insertar el comentario", 500);
-                   }
+function addComment($params=null){
+  $body = $this->getBody();
+
+    if(!empty($_POST['detalle']) &&  !empty($_POST['calificacion']) &&  !empty($_POST['fk_id_libro']) &&  !empty($_POST['fk_id_user'])) {
+        
+        $idComment = $this->CommentModel->insertComment($body->detalle, $body->calificacion, $body->fk_id_libro, $body->fk_id_user);
+        if($idComment != 0){
+          return $this->view->response("Comentario insertado", 200);
+        } else {
+          return $this->view->response("No se pudo insertar el comentario", 500);
         }
-  
+    }else {
+      echo 'No funciono';
+    }
 }
+
 private function getBody(){
-  $bodyString = file_get_contents("php://input");
-  return json_decode($bodyString);
+  return json_decode($this->data);
 }
 
   function deleteComment($params = null) {

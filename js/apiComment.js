@@ -33,7 +33,7 @@ async function getComments(){
         
         list.innerHTML = "";
         for (let comentario of comentarios){
-            let html = `<li> ${comentario.comentario} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
+            let html = `<li> ${comentario.detalle} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
             list.innerHTML += html;
         }  
         
@@ -44,28 +44,32 @@ async function getComments(){
 
     async function addComment(){ //(arreglar)
             console.log("funcionabtn");
-             //e.preventDefault();
+
         let comentario = document.querySelector("#comentario").value;
         let calificacion = document.querySelector("#calificacion").value;
-        let fk_id_libro = getIdBookUrl();
+        let fk_id_libro = document.querySelector('#idbook').getAttribute('data-book');
         let fk_id_user = document.querySelector('#user').getAttribute('data-user');
-        let comments={
-            "comentario": comentario, 
-            "calificacion": calificacion,
-            "fk_id_libro": fk_id_libro,
-            "fk_id_user":fk_id_user
+        let comments = {
+            "detalle" : comentario, 
+            "calificacion" : calificacion,
+            "fk_id_libro" : fk_id_libro,
+            "fk_id_user" : fk_id_user
         }
-        
+
+        console.log(comments);
         try {
+            event.preventDefault();
             let response = await fetch(COMMENT_URL, {
                 "method": "POST",
                 "headers": { "Content-type": "application/json" },
-                "body": JSON.stringify(comments)
+                "body": JSON.stringify(comments),
             });
+            return response.json();
             
             if (response.status == 201) {
                 console.log("response");
             }
+
         } catch (error) {
             console.log(error);
             }   
@@ -87,13 +91,13 @@ async function deleteComment(id){
         }
 }
 
-function getIdBookUrl(){
-    //Se obtiene el valor de la URL desde el navegador
-    var actual = window.location+'';
-    //Se realiza la división de la URL
-    var split = actual.split("/");
-    //Se obtiene el ultimo valor de la URL
-    var id = split[split.length-1];
-    console.log(id);
-    return id;
-}
+// function getIdBookUrl(){
+//     //Se obtiene el valor de la URL desde el navegador
+//     var actual = window.location+'';
+//     //Se realiza la división de la URL
+//     var split = actual.split("/");
+//     //Se obtiene el ultimo valor de la URL
+//     var id = split[split.length-1];
+//     console.log(id);
+//     return id;
+// }

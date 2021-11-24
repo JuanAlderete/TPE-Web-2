@@ -1,7 +1,7 @@
 
 <div class="container-comment">
            
-            <form class="form-comment"  >
+            <form class="form-comment" >
              
                 <label>Comentario</label> <input type="text" name="comentario" id="comentario" placeholder="Comentario">
                 <label>Calificacion</label> <input type="number" name="calificacion" min="1" max="5" id="calificacion" placeholder="De 1 a 5">

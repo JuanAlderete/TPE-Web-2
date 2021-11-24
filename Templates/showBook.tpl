@@ -2,6 +2,9 @@
 
 <div class="container">
 
+    <div id="idbook" data-book={$book->id}>
+    </div>
+
     <h1>{$book->titulo}</h1>
     
     <h3>Año de publicacion: {$book->fecha_publicacion}</h3>

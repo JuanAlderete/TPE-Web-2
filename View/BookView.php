@@ -20,8 +20,7 @@ class BooksView {
     function showBook($book){
         $this->smarty->assign('book', $book);
 
-        $this->smarty->display('Templates/showBook.tpl');
-       
+        $this->smarty->display('Templates/showBook.tpl'); 
     }
 
     function showForm($book, $authors){
