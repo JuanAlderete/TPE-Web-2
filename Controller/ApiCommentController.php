@@ -43,6 +43,7 @@ class ApiCommentController{
   }
 
 function addComment($params=null){
+  $this->helper->checkLoginIn();
   $body = $this->getBody();
 
   if (isset($params)) { 
@@ -62,6 +63,9 @@ private function getBody(){
 }
 
   function deleteComment($params = null) {
+    $this->helper->checkLoginIn();
+    $this->helper->checkAdmin();
+    
     $idComment = $params[':ID'];
     $comment = $this->CommentModel->getComment($idComment);
 

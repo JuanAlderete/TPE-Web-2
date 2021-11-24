@@ -38,7 +38,11 @@ function render(comentarios){  //falta poder mostrar el comentario de cada item
     list.innerHTML = "";
     for (let comentario of comentarios){
         if (book == `${comentario.fk_id_libro}`){
-        let html = `<li> ${comentario.detalle} Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button></li>`;
+        let html = `<div class="card-comment">
+                        <li class="name-user-comment">${comentario.email} dice: </li>
+                        <p> ${comentario.detalle} </p>
+                        <p> Calificacion: ${comentario.calificacion}  <button data-id="${comentario.id}" class="b-borrar" >Borrar</button> </p>
+                    </div>`;
         list.innerHTML += html;
         }
     }  
@@ -46,7 +50,7 @@ function render(comentarios){  //falta poder mostrar el comentario de cada item
 }
 
 async function addComment(){ //(arreglar)
-        console.log("funcionabtn");
+
             //e.preventDefault();
     let comentario = document.querySelector("#comentario").value;
     let calificacion = document.querySelector("#calificacion").value;
@@ -58,22 +62,23 @@ async function addComment(){ //(arreglar)
         "fk_id_libro": fk_id_libro,
         "fk_id_user":fk_id_user
     };
-    
-    try {
-        let response = await fetch(COMMENT_URL, {
-            method: 'POST',
-            body: JSON.stringify(comments),
-            headers: {
-                'Content-Type': 'application/json'
+    if (comentario != "" || calificacion != ""){
+        try {
+            let response = await fetch(COMMENT_URL, {
+                method: 'POST',
+                body: JSON.stringify(comments),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (response.status == 201) {
+                console.log("response");
             }
-        });
-        
-        if (response.status == 201) {
-            console.log("response");
-        }
-    } catch (error) {
-        console.log(error);
-        }   
+        } catch (error) {
+            console.log(error);
+        }  
+    }
 }
 
 // funcion borrar comentario (funciona)

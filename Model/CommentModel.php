@@ -9,7 +9,7 @@ class CommentModel{
     }
 
     function getComments(){
-        $sentencia = $this->db->prepare( "SELECT * FROM comentario");
+        $sentencia = $this->db->prepare("SELECT comentario.id, comentario.detalle, comentario.calificacion, comentario.fk_id_libro, comentario.fk_id_user, users.email  FROM comentario INNER JOIN users ON comentario.fk_id_user = users.id_user");
         $sentencia->execute();
         $comments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comments;

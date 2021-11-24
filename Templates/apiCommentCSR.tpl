@@ -1,22 +1,27 @@
 
-<div class="container-comment">
-           
-            <form class="form-comment" method="post">
-             
-                <label>Comentario</label> <input type="text" name="comentario" id="comentario" placeholder="Comentario">
-                <label>Calificacion</label> <input type="number" name="calificacion" min="1" max="5" id="calificacion" placeholder="De 1 a 5">
-                               
-                <button type="submit" class="btn-comment">Enviar comentario</button>
-            </form>
+    <div class="container-form-comments">
+            
+                <form class="form-comment" method="post">
+                    <div class="input-form-comments">
+                    <label>Comentario</label> </br> <input type="text" class="feedback-input-comment" name="comentario" id="comentario" placeholder="Comentario"> </br> 
+                    <label>Calificacion</label> </br> <input type="number" class="feedback-input-comment" name="calificacion" min="1" max="5" id="calificacion" placeholder="De 1 a 5">
+                    </div>
+                    
+                    <div class="btn-form-comment">
+                    <button type="submit" class="btn-comment">Enviar comentario</button>
+                    </div>
+                </form>
 
-            <div id="user" data-user={$iduser}>
-            </div>
-</div>
+                <div id="user" data-user={$iduser}>
+                </div>
+    </div>
 
- <h2>Comentarios</h2>
-    <ul id="list-comments">
+    <div class="container-comments">
+        <h2>Comentarios</h2>
+        <ul id="list-comments">
 
-    </ul>
+        </ul>
+    </div>
 
 <script src="js/apiComment.js"></script>
 {include file='templates/footer.tpl'} 
